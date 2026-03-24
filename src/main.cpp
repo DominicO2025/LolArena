@@ -8,5 +8,9 @@ int main() {
         return "Hello from my c++ backend!"; 
     });
 
+    CROW_ROUTE(app, "/hello")([](){
+        return "Hello from hello route!";
+    });
+
     app.port(18080).multithreaded().run(); 
 }
