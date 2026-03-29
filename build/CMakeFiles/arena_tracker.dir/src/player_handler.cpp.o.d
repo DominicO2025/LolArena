@@ -1,5 +1,6 @@
-CMakeFiles/arena_tracker.dir/src/main.cpp.o: \
-  /Users/dwo/Desktop/Personal/MyProjects/LolArena/src/main.cpp \
+CMakeFiles/arena_tracker.dir/src/player_handler.cpp.o: \
+  /Users/dwo/Desktop/Personal/MyProjects/LolArena/src/player_handler.cpp \
+  /Users/dwo/Desktop/Personal/MyProjects/LolArena/src/player_handler.h \
   /Users/dwo/Desktop/Personal/MyProjects/LolArena/include/crow.h \
   /Users/dwo/Desktop/Personal/MyProjects/LolArena/include/crow/query_string.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/stdio.h \
@@ -1410,5 +1411,4 @@ CMakeFiles/arena_tracker.dir/src/main.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__stop_token/stop_state.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__stop_token/atomic_unique_lock.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__stop_token/intrusive_list_view.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__stop_token/stop_token.h \
-  /Users/dwo/Desktop/Personal/MyProjects/LolArena/src/player_handler.h
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__stop_token/stop_token.h

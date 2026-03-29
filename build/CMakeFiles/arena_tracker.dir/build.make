@@ -86,17 +86,49 @@ CMakeFiles/arena_tracker.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/arena_tracker.dir/src/main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/dwo/Desktop/Personal/MyProjects/LolArena/src/main.cpp -o CMakeFiles/arena_tracker.dir/src/main.cpp.s
 
+CMakeFiles/arena_tracker.dir/src/player_handler.cpp.o: CMakeFiles/arena_tracker.dir/flags.make
+CMakeFiles/arena_tracker.dir/src/player_handler.cpp.o: /Users/dwo/Desktop/Personal/MyProjects/LolArena/src/player_handler.cpp
+CMakeFiles/arena_tracker.dir/src/player_handler.cpp.o: CMakeFiles/arena_tracker.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dwo/Desktop/Personal/MyProjects/LolArena/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/arena_tracker.dir/src/player_handler.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/arena_tracker.dir/src/player_handler.cpp.o -MF CMakeFiles/arena_tracker.dir/src/player_handler.cpp.o.d -o CMakeFiles/arena_tracker.dir/src/player_handler.cpp.o -c /Users/dwo/Desktop/Personal/MyProjects/LolArena/src/player_handler.cpp
+
+CMakeFiles/arena_tracker.dir/src/player_handler.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/arena_tracker.dir/src/player_handler.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/dwo/Desktop/Personal/MyProjects/LolArena/src/player_handler.cpp > CMakeFiles/arena_tracker.dir/src/player_handler.cpp.i
+
+CMakeFiles/arena_tracker.dir/src/player_handler.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/arena_tracker.dir/src/player_handler.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/dwo/Desktop/Personal/MyProjects/LolArena/src/player_handler.cpp -o CMakeFiles/arena_tracker.dir/src/player_handler.cpp.s
+
+CMakeFiles/arena_tracker.dir/src/riot_client.cpp.o: CMakeFiles/arena_tracker.dir/flags.make
+CMakeFiles/arena_tracker.dir/src/riot_client.cpp.o: /Users/dwo/Desktop/Personal/MyProjects/LolArena/src/riot_client.cpp
+CMakeFiles/arena_tracker.dir/src/riot_client.cpp.o: CMakeFiles/arena_tracker.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dwo/Desktop/Personal/MyProjects/LolArena/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/arena_tracker.dir/src/riot_client.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/arena_tracker.dir/src/riot_client.cpp.o -MF CMakeFiles/arena_tracker.dir/src/riot_client.cpp.o.d -o CMakeFiles/arena_tracker.dir/src/riot_client.cpp.o -c /Users/dwo/Desktop/Personal/MyProjects/LolArena/src/riot_client.cpp
+
+CMakeFiles/arena_tracker.dir/src/riot_client.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/arena_tracker.dir/src/riot_client.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/dwo/Desktop/Personal/MyProjects/LolArena/src/riot_client.cpp > CMakeFiles/arena_tracker.dir/src/riot_client.cpp.i
+
+CMakeFiles/arena_tracker.dir/src/riot_client.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/arena_tracker.dir/src/riot_client.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/dwo/Desktop/Personal/MyProjects/LolArena/src/riot_client.cpp -o CMakeFiles/arena_tracker.dir/src/riot_client.cpp.s
+
 # Object files for target arena_tracker
 arena_tracker_OBJECTS = \
-"CMakeFiles/arena_tracker.dir/src/main.cpp.o"
+"CMakeFiles/arena_tracker.dir/src/main.cpp.o" \
+"CMakeFiles/arena_tracker.dir/src/player_handler.cpp.o" \
+"CMakeFiles/arena_tracker.dir/src/riot_client.cpp.o"
 
 # External object files for target arena_tracker
 arena_tracker_EXTERNAL_OBJECTS =
 
 arena_tracker: CMakeFiles/arena_tracker.dir/src/main.cpp.o
+arena_tracker: CMakeFiles/arena_tracker.dir/src/player_handler.cpp.o
+arena_tracker: CMakeFiles/arena_tracker.dir/src/riot_client.cpp.o
 arena_tracker: CMakeFiles/arena_tracker.dir/build.make
 arena_tracker: CMakeFiles/arena_tracker.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/dwo/Desktop/Personal/MyProjects/LolArena/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable arena_tracker"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/dwo/Desktop/Personal/MyProjects/LolArena/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable arena_tracker"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/arena_tracker.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

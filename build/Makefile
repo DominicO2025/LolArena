@@ -153,6 +153,54 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/arena_tracker.dir/build.make CMakeFiles/arena_tracker.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+src/player_handler.o: src/player_handler.cpp.o
+.PHONY : src/player_handler.o
+
+# target to build an object file
+src/player_handler.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/arena_tracker.dir/build.make CMakeFiles/arena_tracker.dir/src/player_handler.cpp.o
+.PHONY : src/player_handler.cpp.o
+
+src/player_handler.i: src/player_handler.cpp.i
+.PHONY : src/player_handler.i
+
+# target to preprocess a source file
+src/player_handler.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/arena_tracker.dir/build.make CMakeFiles/arena_tracker.dir/src/player_handler.cpp.i
+.PHONY : src/player_handler.cpp.i
+
+src/player_handler.s: src/player_handler.cpp.s
+.PHONY : src/player_handler.s
+
+# target to generate assembly for a file
+src/player_handler.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/arena_tracker.dir/build.make CMakeFiles/arena_tracker.dir/src/player_handler.cpp.s
+.PHONY : src/player_handler.cpp.s
+
+src/riot_client.o: src/riot_client.cpp.o
+.PHONY : src/riot_client.o
+
+# target to build an object file
+src/riot_client.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/arena_tracker.dir/build.make CMakeFiles/arena_tracker.dir/src/riot_client.cpp.o
+.PHONY : src/riot_client.cpp.o
+
+src/riot_client.i: src/riot_client.cpp.i
+.PHONY : src/riot_client.i
+
+# target to preprocess a source file
+src/riot_client.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/arena_tracker.dir/build.make CMakeFiles/arena_tracker.dir/src/riot_client.cpp.i
+.PHONY : src/riot_client.cpp.i
+
+src/riot_client.s: src/riot_client.cpp.s
+.PHONY : src/riot_client.s
+
+# target to generate assembly for a file
+src/riot_client.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/arena_tracker.dir/build.make CMakeFiles/arena_tracker.dir/src/riot_client.cpp.s
+.PHONY : src/riot_client.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -165,6 +213,12 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/player_handler.o"
+	@echo "... src/player_handler.i"
+	@echo "... src/player_handler.s"
+	@echo "... src/riot_client.o"
+	@echo "... src/riot_client.i"
+	@echo "... src/riot_client.s"
 .PHONY : help
 
 

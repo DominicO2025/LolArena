@@ -1,6 +1,10 @@
 file(REMOVE_RECURSE
   "CMakeFiles/arena_tracker.dir/src/main.cpp.o"
   "CMakeFiles/arena_tracker.dir/src/main.cpp.o.d"
+  "CMakeFiles/arena_tracker.dir/src/player_handler.cpp.o"
+  "CMakeFiles/arena_tracker.dir/src/player_handler.cpp.o.d"
+  "CMakeFiles/arena_tracker.dir/src/riot_client.cpp.o"
+  "CMakeFiles/arena_tracker.dir/src/riot_client.cpp.o.d"
   "arena_tracker"
   "arena_tracker.pdb"
 )

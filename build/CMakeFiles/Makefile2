@@ -85,12 +85,12 @@ clean: CMakeFiles/arena_tracker.dir/clean
 CMakeFiles/arena_tracker.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/arena_tracker.dir/build.make CMakeFiles/arena_tracker.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/arena_tracker.dir/build.make CMakeFiles/arena_tracker.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/dwo/Desktop/Personal/MyProjects/LolArena/build/CMakeFiles --progress-num=1,2 "Built target arena_tracker"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/dwo/Desktop/Personal/MyProjects/LolArena/build/CMakeFiles --progress-num=1,2,3,4 "Built target arena_tracker"
 .PHONY : CMakeFiles/arena_tracker.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/arena_tracker.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/dwo/Desktop/Personal/MyProjects/LolArena/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/dwo/Desktop/Personal/MyProjects/LolArena/build/CMakeFiles 4
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/arena_tracker.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/dwo/Desktop/Personal/MyProjects/LolArena/build/CMakeFiles 0
 .PHONY : CMakeFiles/arena_tracker.dir/rule
@@ -102,7 +102,7 @@ arena_tracker: CMakeFiles/arena_tracker.dir/rule
 # codegen rule for target.
 CMakeFiles/arena_tracker.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/arena_tracker.dir/build.make CMakeFiles/arena_tracker.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/dwo/Desktop/Personal/MyProjects/LolArena/build/CMakeFiles --progress-num=1,2 "Finished codegen for target arena_tracker"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/dwo/Desktop/Personal/MyProjects/LolArena/build/CMakeFiles --progress-num=1,2,3,4 "Finished codegen for target arena_tracker"
 .PHONY : CMakeFiles/arena_tracker.dir/codegen
 
 # clean rule for target.

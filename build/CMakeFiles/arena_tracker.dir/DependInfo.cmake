@@ -9,6 +9,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/Users/dwo/Desktop/Personal/MyProjects/LolArena/src/main.cpp" "CMakeFiles/arena_tracker.dir/src/main.cpp.o" "gcc" "CMakeFiles/arena_tracker.dir/src/main.cpp.o.d"
+  "/Users/dwo/Desktop/Personal/MyProjects/LolArena/src/player_handler.cpp" "CMakeFiles/arena_tracker.dir/src/player_handler.cpp.o" "gcc" "CMakeFiles/arena_tracker.dir/src/player_handler.cpp.o.d"
+  "/Users/dwo/Desktop/Personal/MyProjects/LolArena/src/riot_client.cpp" "CMakeFiles/arena_tracker.dir/src/riot_client.cpp.o" "gcc" "CMakeFiles/arena_tracker.dir/src/riot_client.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.
