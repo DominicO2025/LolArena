@@ -1,7 +1,7 @@
 #include "player_handler.h"
 #include <string>
 
-crow::response handlePlayerRoute(const crow::request& req) {
+crow::response handlePlayerRoute(const crow::request& req, RiotClient& riotClient) {
     auto name = req.url_params.get("name");
     auto tag = req.url_params.get("tag");
     auto region = req.url_params.get("region");
@@ -18,12 +18,11 @@ crow::response handlePlayerRoute(const crow::request& req) {
         return crow::response(400, "Missing 'region' parameter");
     }
 
+    std::string riotResponse = riotClient.getAccountByRiotId(region, name, tag);
+
     crow::json::wvalue result;
     result["ok"] = true;
-    result["account"]["gameName"] = std::string(name);
-    result["account"]["tagLine"] = std::string(tag);
-    result["account"]["region"] = std::string(region);
-    result["account"]["puuid"] = "fake-puuid-for-now";
+    result["raw"] = riotResponse;
 
     return crow::response(result);
 }
