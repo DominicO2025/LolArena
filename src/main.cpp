@@ -18,18 +18,39 @@ int main() {
     RiotClient riotClient(riotApiKey);
     crow::SimpleApp app;
 
+    // ── Health check ────────────────────────────────────────────────────────
     CROW_ROUTE(app, "/")([]() {
-        return "Hello from my C++ backend!";
+        return "League of Legends Arena Win Tracker – running!";
     });
 
-    CROW_ROUTE(app, "/hello")([]() {
-        return "Hello from hello route!";
-    });
-
+    // ── Step 1: resolve Riot ID → PUUID ─────────────────────────────────────
+    // GET /api/player?name=<gameName>&tag=<tagLine>&region=<na1|euw1|kr|…>
+    //
+    // Example: /api/player?name=Faker&tag=KR1&region=kr
+    //
+    // Returns: { gameName, tagLine, puuid }
     CROW_ROUTE(app, "/api/player")
     ([&riotClient](const crow::request& req) {
         return handlePlayerRoute(req, riotClient);
     });
 
+    // ── Step 2: fetch Arena champion stats for a PUUID ───────────────────────
+    // GET /api/player/arena-stats?puuid=<puuid>&region=<region>&count=<1-100>
+    //
+    // Example: /api/player/arena-stats?puuid=abc123&region=na1&count=50
+    //
+    // Returns: {
+    //   puuid, matchesScanned, totalChampions,
+    //   champions: [
+    //     { champion, gamesPlayed, wins, winRate, totalHours, totalMinutes },
+    //     ...  (sorted by totalHours descending)
+    //   ]
+    // }
+    CROW_ROUTE(app, "/api/player/arena-stats")
+    ([&riotClient](const crow::request& req) {
+        return handleArenaStatsRoute(req, riotClient);
+    });
+
+    std::cout << "Server starting on port 18080...\n";
     app.port(18080).multithreaded().run();
 }
