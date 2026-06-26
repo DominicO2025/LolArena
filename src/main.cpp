@@ -3,6 +3,7 @@
 #include <cstdlib>
 #include <iostream>
 #include <string>
+#include <fstream>
 
 #include "player_handler.h"
 #include "riot_client.h"
@@ -20,7 +21,13 @@ int main() {
 
     // ── Health check ────────────────────────────────────────────────────────
     CROW_ROUTE(app, "/")([]() {
-        return "League of Legends Arena Win Tracker – running!";
+        std::ifstream file("index.html");
+        if (!file) return crow::response(404, "index.html not found");
+        std::string body((std::istreambuf_iterator<char>(file)),
+                        std::istreambuf_iterator<char>());
+        crow::response res(body);
+        res.set_header("Content-Type", "text/html");
+        return res;
     });
 
     // ── Step 1: resolve Riot ID → PUUID ─────────────────────────────────────

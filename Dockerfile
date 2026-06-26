@@ -25,6 +25,8 @@ RUN cmake -S . -B build -DCROW_DIR=/crow/include && \
 
 EXPOSE 18080
 
+COPY index.html .
+
 # RIOT_API_KEY must be passed at runtime:
 #   docker run -e RIOT_API_KEY=RGAPI-xxx ...
 CMD ["./build/arena_tracker"]
