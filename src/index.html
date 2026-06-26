@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arena Win Tracker</title>
+</head>
+<body>
+
+  <h1>Arena Win Tracker</h1>
+
+  <!-- Search Form -->
+  <label for="inp-name">Summoner Name</label>
+  <input type="text" id="inp-name" placeholder="Faker">
+
+  <label for="inp-tag">Tag</label>
+  <input type="text" id="inp-tag" placeholder="KR1" maxlength="8">
+
+  <label for="inp-region">Region</label>
+  <select id="inp-region">
+    <option value="na1">NA</option>
+    <option value="euw1">EUW</option>
+    <option value="eune1">EUNE</option>
+    <option value="kr">KR</option>
+    <option value="jp1">JP</option>
+    <option value="br1">BR</option>
+    <option value="la1">LAN</option>
+    <option value="la2">LAS</option>
+    <option value="oc1">OCE</option>
+    <option value="tr1">TR</option>
+  </select>
+
+  <label for="inp-count">Matches to scan (max 100)</label>
+  <input type="number" id="inp-count" value="20" min="1" max="100">
+
+  <button id="btn-search" onclick="search()">Search</button>
+
+  <p id="status-text"></p>
+
+  <!-- Player Info (hidden until search) -->
+  <div id="player-banner" style="display:none">
+    <h2 id="player-name"></h2>
+    <p id="player-tagline"></p>
+    <p>Champions played: <span id="stat-champs"></span></p>
+    <p>Matches scanned: <span id="stat-matches"></span></p>
+  </div>
+
+  <!-- Results Table (hidden until search) -->
+  <div id="results" style="display:none">
+    <h2>Champion Stats — sorted by hours played</h2>
+    <table id="stats-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Champion</th>
+          <th>Hours Played</th>
+          <th>Games</th>
+          <th>Wins</th>
+          <th>Win Rate</th>
+        </tr>
+      </thead>
+      <tbody id="table-body"></tbody>
+    </table>
+  </div>
+
+  <script>
+    // Allow Enter key to trigger search
+    document.querySelectorAll('input').forEach(el => {
+      el.addEventListener('keydown', e => { if (e.key === 'Enter') search(); });
+    });
+
+    async function search() {
+      const name   = document.getElementById('inp-name').value.trim();
+      const tag    = document.getElementById('inp-tag').value.trim();
+      const region = document.getElementById('inp-region').value;
+      const count  = document.getElementById('inp-count').value || '20';
+
+      if (!name) { setStatus('Please enter a summoner name.'); return; }
+      if (!tag)  { setStatus('Please enter a tag (e.g. NA1).'); return; }
+
+      const btn = document.getElementById('btn-search');
+      btn.disabled = true;
+      document.getElementById('player-banner').style.display = 'none';
+      document.getElementById('results').style.display = 'none';
+
+      // Step 1: resolve name + tag -> puuid
+      setStatus('Resolving Riot ID...');
+      let puuid;
+      try {
+        const r = await fetch(`/api/player?name=${encodeURIComponent(name)}&tag=${encodeURIComponent(tag)}&region=${region}`);
+        const d = await r.json();
+        if (!r.ok || d.error) throw new Error(d.error || `HTTP ${r.status}`);
+        puuid = d.puuid;
+        document.getElementById('player-name').textContent    = d.gameName + ' #' + d.tagLine;
+        document.getElementById('player-tagline').textContent = region.toUpperCase();
+        document.getElementById('player-banner').style.display = 'block';
+      } catch (e) {
+        setStatus('Could not find player: ' + e.message);
+        btn.disabled = false;
+        return;
+      }
+
+      // Step 2: fetch arena stats for that puuid
+      setStatus(`Fetching last ${count} Arena matches...`);
+      try {
+        const r = await fetch(`/api/player/arena-stats?puuid=${encodeURIComponent(puuid)}&region=${region}&count=${count}`);
+        const d = await r.json();
+        if (!r.ok || d.error) throw new Error(d.error || `HTTP ${r.status}`);
+        setStatus('');
+        renderResults(d);
+      } catch (e) {
+        setStatus('Failed to load stats: ' + e.message);
+        btn.disabled = false;
+        return;
+      }
+
+      btn.disabled = false;
+    }
+
+    function renderResults(data) {
+      document.getElementById('stat-champs').textContent  = data.totalChampions;
+      document.getElementById('stat-matches').textContent = data.matchesScanned;
+
+      const champs = data.champions || [];
+      if (champs.length === 0) {
+        document.getElementById('table-body').innerHTML =
+          '<tr><td colspan="6">No Arena matches found.</td></tr>';
+      } else {
+        document.getElementById('table-body').innerHTML = champs.map((c, i) => `
+          <tr>
+            <td>${i + 1}</td>
+            <td>${c.champion}</td>
+            <td>${c.totalHours >= 0.1 ? c.totalHours.toFixed(1) + 'h' : c.totalMinutes + 'm'}</td>
+            <td>${c.gamesPlayed}</td>
+            <td>${c.wins}</td>
+            <td>${c.winRate}%</td>
+          </tr>
+        `).join('');
+      }
+
+      document.getElementById('results').style.display = 'block';
+    }
+
+    function setStatus(msg) {
+      document.getElementById('status-text').textContent = msg;
+    }
+  </script>
+
+</body>
+</html>
