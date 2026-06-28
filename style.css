@@ -1,0 +1,245 @@
+/* ── Reset & base ─────────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #0a0e17;
+  color: #c5d8e8;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-size: 16px;
+  min-height: 100vh;
+  padding: 32px 24px 80px;
+}
+
+/* ── Page wrapper ─────────────────────────────────────────────────────────── */
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ── Header ───────────────────────────────────────────────────────────────── */
+h1 {
+  font-size: 36px;
+  font-weight: 700;
+  color: #c8a84b;
+  letter-spacing: 0.04em;
+  margin-bottom: 32px;
+}
+
+h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #c8a84b;
+  margin-bottom: 16px;
+  margin-top: 32px;
+}
+
+/* ── Search form ──────────────────────────────────────────────────────────── */
+.search-form {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.search-form label {
+  display: block;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #4a6070;
+  margin-bottom: 6px;
+}
+
+.search-form .field {
+  display: flex;
+  flex-direction: column;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+  background: #0f1a24;
+  border: 1px solid #1a2e40;
+  border-radius: 3px;
+  color: #c5d8e8;
+  font-size: 15px;
+  padding: 9px 12px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+select:focus {
+  border-color: #0bc4e3;
+}
+
+input[type="text"]::placeholder {
+  color: #4a6070;
+}
+
+select option {
+  background: #0a1118;
+}
+
+button#btn-search {
+  background: #7a6022;
+  border: 1px solid #c8a84b;
+  border-radius: 3px;
+  color: #c8a84b;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  padding: 10px 24px;
+  text-transform: uppercase;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+button#btn-search:hover:not(:disabled) {
+  background: #96781a;
+  box-shadow: 0 0 12px rgba(200, 168, 75, 0.35);
+}
+
+button#btn-search:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* ── Status text ──────────────────────────────────────────────────────────── */
+#status-text {
+  font-size: 14px;
+  color: #0bc4e3;
+  min-height: 20px;
+  margin-bottom: 8px;
+}
+
+/* ── Player banner ────────────────────────────────────────────────────────── */
+#player-banner {
+  background: #0a1118;
+  border: 1px solid #1a2e40;
+  border-left: 3px solid #c8a84b;
+  border-radius: 3px;
+  padding: 20px 24px;
+  margin-bottom: 32px;
+}
+
+#player-banner h2 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 22px;
+  color: #c8a84b;
+}
+
+#player-banner p {
+  font-size: 14px;
+  color: #4a6070;
+  margin-bottom: 4px;
+}
+
+#player-banner p span {
+  color: #c5d8e8;
+  font-weight: 600;
+}
+
+/* ── Champion grid ────────────────────────────────────────────────────────── */
+#champion-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 8px;
+}
+
+/* ── Champion card ────────────────────────────────────────────────────────── */
+.champ-card {
+  background: #0a1118;
+  border: 1px solid #1a2e40;
+  border-radius: 3px;
+  cursor: default;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  transition: border-color 0.2s, transform 0.15s;
+}
+
+.champ-card:hover {
+  border-color: #0bc4e3;
+  transform: translateY(-2px);
+}
+
+.champ-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Played at least once — subtle blue tint on border */
+.champ-card.played {
+  border-color: #0a3d47;
+}
+
+/* Has at least one win — gold border */
+.champ-card.won {
+  border-color: #c8a84b;
+  box-shadow: 0 0 8px rgba(200, 168, 75, 0.25);
+}
+
+/* ── Win checkmark badge ──────────────────────────────────────────────────── */
+.badge {
+  background: #c8a84b;
+  border-radius: 50%;
+  color: #0a0e17;
+  font-size: 11px;
+  font-weight: 700;
+  height: 20px;
+  line-height: 20px;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  width: 20px;
+}
+
+/* ── Champion name ────────────────────────────────────────────────────────── */
+.champ-name {
+  font-size: 11px;
+  font-weight: 500;
+  padding: 5px 4px 3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #c5d8e8;
+}
+
+/* ── W/L stats line under name ────────────────────────────────────────────── */
+.champ-stats {
+  font-size: 11px;
+  padding-bottom: 5px;
+  color: #4a6070;
+}
+
+.champ-stats .wins {
+  color: #2ecc8a;
+  font-weight: 600;
+}
+
+.champ-stats .losses {
+  color: #e05050;
+}
+
+/* ── Responsive: fewer columns on small screens ───────────────────────────── */
+@media (max-width: 600px) {
+  h1 { font-size: 26px; }
+
+  .search-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  #champion-grid {
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  }
+}

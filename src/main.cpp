@@ -20,13 +20,13 @@ int main() {
     crow::SimpleApp app;
 
     // ── Health check ────────────────────────────────────────────────────────
-    CROW_ROUTE(app, "/")([]() {
-        std::ifstream file("index.html");
-        if (!file) return crow::response(404, "index.html not found");
+    CROW_ROUTE(app, "/style.css")([]() {
+        std::ifstream file("style.css");
+        if (!file) return crow::response(404, "style.css not found");
         std::string body((std::istreambuf_iterator<char>(file)),
                         std::istreambuf_iterator<char>());
         crow::response res(body);
-        res.set_header("Content-Type", "text/html");
+        res.set_header("Content-Type", "text/css");
         return res;
     });
 
